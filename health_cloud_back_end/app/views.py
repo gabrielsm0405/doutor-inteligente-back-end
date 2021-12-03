@@ -38,8 +38,8 @@ class InferenceView(mixins.CreateModelMixin, viewsets.GenericViewSet):
 
                     ResultObj.delete()
 
-                    return HttpResponse(content=json.dumps({'error: ':"Failure running the model"}, ensure_ascii=False).encode('utf8'), status=400)
+                    return HttpResponse(content=json.dumps({'error':"Falha executando o modelo"}, ensure_ascii=False).encode('utf8'), status=400)
             else:
-                return HttpResponse(content=json.dumps({'error: ':"This key was already used ten times"}, ensure_ascii=False).encode('utf8'), status=400)
+                return HttpResponse(content=json.dumps({'error':"Essa chave de acesso foi utilizada 10 vezes"}, ensure_ascii=False).encode('utf8'), status=400)
         else:
-            return HttpResponse(content=json.dumps({'error: ':"There is no key like that"}, ensure_ascii=False).encode('utf8'), status=400)
+            return HttpResponse(content=json.dumps({'error':"Chave de acesso inválida"}, ensure_ascii=False).encode('utf8'), status=400)

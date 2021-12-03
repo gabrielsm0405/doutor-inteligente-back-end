@@ -54,16 +54,6 @@ class Results(models.Model):
     heatmaps_links = models.ManyToManyField(HeatmapLink)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    def delete(self, *args, **kwargs):
-        self.key.counter = self.key.counter - 1
-        self.key.save()
-        self.originalImage.delete(save = False)
-
-        for heatmap_link in self.heatmaps_links.all():
-            heatmap_link.delete()
-
-        super(Results, self).delete(*args, **kwargs)
-
     class Meta:
         verbose_name = 'Result'
         verbose_name_plural = 'Results'

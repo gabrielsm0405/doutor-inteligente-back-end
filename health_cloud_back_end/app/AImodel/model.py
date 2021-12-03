@@ -14,20 +14,20 @@ import tensorflow as tf
 from tensorflow.python.framework.ops import disable_eager_execution, enable_eager_execution
 
 labels = [
-    'Cardiomegaly', 
-    'Emphysema', 
-    'Effusion', 
-    'Hernia', 
-    'Infiltration', 
-    'Mass', 
-    'Nodule', 
-    'Atelectasis',
-    'Pneumothorax',
-    'Pleural_Thickening', 
+    'Cardiomegalia', 
+    'Enfisema', 
+    'Efusão', 
+    'Hérnia', 
+    'Infiltração', 
+    'Massa', 
+    'Nódulo', 
+    'Atelectasia',
+    'Pneumotórax',
+    'Espessamento Pleural', 
     'Pneumonia', 
-    'Fibrosis', 
+    'Fibrose', 
     'Edema', 
-    'Consolidation'
+    'Consolidação'
 ]
 
 def get_mean_std_per_batch(image_path, H=320, W=320):
@@ -74,7 +74,7 @@ def generate_grad_cam(image_path, input_model, image, cls, layer_name, H=320, W=
     cv2.imwrite('./images/'+resultImageName, 255*cam)
     heatmapImage = cv2.imread('./images/'+resultImageName)
     heatmapImage = cv2.applyColorMap(heatmapImage, cv2.COLORMAP_JET)
-    result = cv2.addWeighted(heatmapImage, 0.7, originalImage, 0.3, 0)
+    result = cv2.addWeighted(originalImage, 0.7, heatmapImage, 0.3, 0)
     cv2.imwrite('./images/'+resultImageName, result)
 
     result_link = API_URL+"images/"+resultImageName
