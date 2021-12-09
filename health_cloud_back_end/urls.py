@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.urls import path, include
 from django.contrib import admin
 from health_cloud_back_end.app import views
 from django.conf.urls.static import static
@@ -21,6 +21,6 @@ import os
 from .settings import BASE_DIR
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r"inference/$", views.InferenceView.as_view({'post': 'makeInferece'})),
+    path('admin/', admin.site.urls),
+    path("inference/", views.InferenceView.as_view({'post': 'makeInferece'})),
 ] + static("/images/", document_root=os.path.join(BASE_DIR, 'images'))

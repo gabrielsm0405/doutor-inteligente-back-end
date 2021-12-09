@@ -5,4 +5,4 @@ from django.apps import AppConfig
 
 
 class AuthConfig(AppConfig):
-    name = 'app'
+    name = 'health_cloud_back_end.app'
