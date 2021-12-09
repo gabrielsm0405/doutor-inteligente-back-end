@@ -15,7 +15,8 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-API_URL = "http://localhost:8000/"
+# API_URL = "http://localhost:8000/"
+API_URL = "http://ec2-18-118-131-31.us-east-2.compute.amazonaws.com/"
 
 
 # Quick-start development settings - unsuitable for production

@@ -29,6 +29,7 @@ class InferenceView(mixins.CreateModelMixin, viewsets.GenericViewSet):
                     results = get_results(ResultObj.originalImage.path)
 
                     for result in results:
+                        print("Creating result for "+result['pathology'])
                         ResultObj.heatmaps_links.create(pathology = result['pathology'], link=result['heatmap_link'])
                     ResultObj.save()
 

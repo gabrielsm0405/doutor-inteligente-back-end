@@ -94,7 +94,7 @@ def get_results(image_path):
 
     results = []
     for label in labels:
-        print("Executing modelo for "+label)
+        print("Running model for "+label)
         cam = generate_grad_cam(image_path, model, preprocessed_input, labels.index(label), 'bn')
         results.append(
             {"heatmap_link": cam, "prediction": str(predictions[labels.index(label)]), "pathology": label}
