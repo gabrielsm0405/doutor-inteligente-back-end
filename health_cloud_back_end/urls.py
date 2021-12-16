@@ -23,4 +23,4 @@ from .settings import BASE_DIR
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("inference/", views.InferenceView.as_view({'post': 'makeInferece'})),
-] + static("/images/", document_root=os.path.join(BASE_DIR, 'images'))
+] + static("/images/", document_root=os.path.join(BASE_DIR, 'images')) + static("/static/", document_root=os.path.join(BASE_DIR, 'static'))
